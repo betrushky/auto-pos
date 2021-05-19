@@ -1,0 +1,10 @@
+Sistema de control de inventarios
+
+El sistema se basa en crear una base de datos propia sqlite3
+Agrega informacion de un control de ventas de vehiculos
+Sugiere Busquedas generales,por nombre, por codigo, por marca, etc.
+Sugiere generar tablas de clientes
+Control de ventas.
+Generacion de facturas.
+Reporte de ventas en modo texto para la primera version.
+ 
