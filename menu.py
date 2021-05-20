@@ -1,5 +1,6 @@
 from input_datos import anadir
 from buscard import busqueda
+from deldat import del_ement
 import time
 import sqlite3
 from sqlite3 import Error
@@ -10,7 +11,7 @@ def menusel():
        while True:
 
         print('###########  Menu principal  ###########\n########################################\n')
-        sel = input("Seleccione una opción:\n\n[1] Añadir\n[2] Buscar\n[3] Salir\n\n")
+        sel = input("Seleccione una opción:\n\n[1] Añadir\n[2] Buscar\n[3] Borrar\n[4] Salir\n\n")
 
         if sel == str(1):
             print("añadiendo...")
@@ -20,9 +21,11 @@ def menusel():
             print("Buscando...")
             time.sleep(1)
             busqueda()
-        
-    
+
         elif sel == str(3):
+            del_ement()
+  
+        elif sel == str(4):
             print ("saliendo...")
             time.sleep(1)
             break
