@@ -10,6 +10,9 @@ def busqueda():
     
     elif gt == str(2):
         bcodi()
+
+    elif gt == str(3):
+        bxnom()
        
 
 def bcodi():
@@ -40,3 +43,15 @@ def btodos():
     conetor.close()
     input('\nPresione una tecla para regresar al menu...')
     
+def bxnom():
+
+    codd = input("\nIngrese el nombre que desea consultar: ")
+    conecta = sqlite3.connect('base.db')
+    cur = conecta.cursor()
+
+    cur.execute("SELECT CODIGO, FABRICA,NOMBRE, MODELO,PRECIO FROM PRINCIPAL WHERE NOMBRE=?",(codd,))
+    muestra=cur.fetchall()
+    print(muestra)
+
+    conecta.close()
+    input('\nPresione una teclapara volver al menu...')

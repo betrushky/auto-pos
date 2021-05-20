@@ -1,19 +1,27 @@
 import sqlite3
 
+
 def anadir():
     
-    print('###########  Nuevo Registro  ###########\n########################################\n')
-    print('Ingrese los datos:\n\nCampos con * son obligatorios \n')
+    while True:
     
-    # Falta programacion de campos vacios no validos
+        print('###########  Nuevo Registro  ###########\n########################################\n')
+        print('Ingrese los datos:\n\nCampos con * son obligatorios \n')
 
-    codigo = input('*Codigo: ')
-    nombre = input('*Nombre: ')
-    fabrica = input('Concesionaria: ')
-    modelo = input('Modelo: ')
-    costo = input('Costo: $')
-    precio = input('Precio: $')
+        codigo = input('*Codigo: ')
+        nombre = input('*Nombre: ')
+        fabrica = input('Concesionaria: ')
+        modelo = input('Modelo: ')
+        costo = input('Costo: $')
+        precio = input('Precio: $')
 
+        if codigo == "" or nombre == "":
+            print("Error vuelva a intentarlo...")
+        
+        else:
+            break
+
+    
     conexion = sqlite3.connect('base.db')
     cursor = conexion.cursor()
   
@@ -30,4 +38,12 @@ def anadir():
         anadir()
     else:
         print('Saliendo...')
-    # falta programacion redundante para mas opciones....
+   
+
+
+
+    
+ 
+
+
+
