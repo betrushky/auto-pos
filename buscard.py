@@ -16,18 +16,37 @@ def busqueda():
        
 
 def bcodi():
-     #------ Falta control de errores y elementos
-     codd = input("\nIngrese el codigo que desea consultar: ")
-     conector = sqlite3.connect('base.db')
-     cursor = conector.cursor()
+    while True:
 
-     cursor.execute("SELECT * FROM PRINCIPAL WHERE CODIGO=?",(codd,))
-     muestra = cursor.fetchall()
-     print(muestra)
+        codd = input("\nIngrese el codigo que desea consultar o Q para salir: ")
+        if codd == 'Q' or codd == 'q':
+            break
+        
+            
+        conector = sqlite3.connect('base.db')
+        cursor = conector.cursor()
 
+        cursor.execute("SELECT CODIGO FROM PRINCIPAL")
+        existe = cursor.fetchall()
+        
 
-     conector.close
-
+        for i in existe:
+                
+            if codd in i:
+                conector = sqlite3.connect('base.db')
+                cursor.execute("SELECT * FROM PRINCIPAL WHERE CODIGO=?",(codd,))
+                muestra = cursor.fetchall()
+                for _ in muestra:
+                    print(_)
+                
+                input("\nPresione una teclapara continuar...")
+                conector.close()
+                break
+                 
+     
+        conector.close()   
+        #input("Codigo no valido...")
+        
     
 def btodos():
 # Mostrar todos los datos
@@ -48,6 +67,8 @@ def bxnom():
     codd = input("\nIngrese el nombre que desea consultar: ")
     conecta = sqlite3.connect('base.db')
     cur = conecta.cursor()
+
+    #cur.execute("SELECT NOMBRE FROM PRINCIPAL")
 
     cur.execute("SELECT CODIGO, FABRICA,NOMBRE, MODELO,PRECIO FROM PRINCIPAL WHERE NOMBRE=?",(codd,))
     muestra=cur.fetchall()
