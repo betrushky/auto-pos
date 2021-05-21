@@ -14,12 +14,12 @@ def menusel():
         sel = input("Seleccione una opción:\n\n[1] Añadir\n[2] Buscar\n[3] Borrar\n[4] Salir\n\n")
 
         if sel == str(1):
-            print("añadiendo...")
+            #print("añadiendo...")
             anadir()
     
         elif sel == str(2):
             print("Buscando...")
-            time.sleep(1)
+            time.sleep(0.5)
             busqueda()
 
         elif sel == str(3):
@@ -27,7 +27,7 @@ def menusel():
   
         elif sel == str(4):
             print ("saliendo...")
-            time.sleep(1)
+            time.sleep(0.5)
             break
   
 
